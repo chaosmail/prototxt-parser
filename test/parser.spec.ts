@@ -1,6 +1,6 @@
-import { parsePrototxt } from '../src/index';
+import * as prototxtParser from '../src/index';
 
-describe('parsePrototxt', () => {
+describe('prototxtParser::parse', () => {
   
   it('parses input layer', () => {
     const input = `layer {
@@ -10,7 +10,7 @@ describe('parsePrototxt', () => {
       input_param { shape: { dim: 10 dim: 3 dim: 227 dim: 227 } }
     }`;
 
-    const actual = parsePrototxt(input);
+    const actual = prototxtParser.parse(input);
     const expected: any = {
       layer: {
         name: "data",
@@ -36,7 +36,7 @@ describe('parsePrototxt', () => {
       }
     }`;
 
-    const actual = parsePrototxt(input);
+    const actual = prototxtParser.parse(input);
     const expected: any = {
       layer: {
         name: "conv1",
@@ -67,7 +67,7 @@ describe('parsePrototxt', () => {
       }
     }`;
 
-    const actual = parsePrototxt(input);
+    const actual = prototxtParser.parse(input);
     const expected: any = {
       layer: {
         name: "pool1",
@@ -98,7 +98,7 @@ describe('parsePrototxt', () => {
       name: "pool1"
     }`;
 
-    const actual = parsePrototxt(input);
+    const actual = prototxtParser.parse(input);
     const expected: any = {
       name: "Net",
       layer: [

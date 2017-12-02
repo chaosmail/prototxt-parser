@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/chaosmail/prototxt-parser.svg?branch=master)](https://travis-ci.org/chaosmail/prototxt-parser)
+
 # Prototxt-Parser
 
 Parse `*.prototxt` files to JavaScript objects.
@@ -5,8 +7,7 @@ Parse `*.prototxt` files to JavaScript objects.
 ## Usage Browser
 
 ```html
-<script src="prototxt-parser.min.js"></script>
-
+<script src="https://unpkg.com/prototxt-parser"></script>
 <script>
 
   function fetchText(uri) {
@@ -18,9 +19,8 @@ Parse `*.prototxt` files to JavaScript objects.
   var uri = "https://rawgit.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.1/deploy.prototxt";
   
   var proto;
-
   fetchText(uri).then(function(str){
-    proto = parsePrototxt(str);
+    proto = prototxtParser.parse(str);
     console.log(proto);
   });
 
@@ -30,7 +30,7 @@ Parse `*.prototxt` files to JavaScript objects.
 ## Usage Typescript
 
 ```typescript
-import { parsePrototxt } from 'prototxt-parser';
+import * as prototxtParser from 'prototxt-parser';
 
 function fetchText(uri: string) : Promise<string> {
   return fetch(new Request(uri)).then((res) => res.text());
@@ -39,7 +39,7 @@ function fetchText(uri: string) : Promise<string> {
 let proto: Object;
 
 fetchText(uri).then(function(str){
-  proto = parsePrototxt(str);
+  proto = prototxtParser.parse(str);
   console.log(proto);
 });
 

@@ -28,7 +28,10 @@ gulp.task('clean', () => {
 // Bundle the project for the browser
 gulp.task('browserify', () => {
   
-  let b = browserify({extensions: '.ts'});
+  let b = browserify({
+    standalone: 'prototxt-parser',
+    extensions: '.ts'
+  });
 
   return b.plugin('tsify')
     .add(config.src + '/index.ts')

@@ -87,6 +87,6 @@ const Prototxt = P.createLanguage({
       .map(tuplesToObj)
 });
 
-export function parsePrototxt(input: string) {
+export function parse(input: string) {
   return Prototxt.exp.tryParse(input);
 }

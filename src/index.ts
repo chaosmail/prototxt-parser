@@ -1,1 +1,1 @@
-export { parsePrototxt } from './parser';
+export { parse } from './parser';
