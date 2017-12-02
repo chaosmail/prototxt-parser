@@ -4,7 +4,7 @@
   "description": "a prototxt parser for js based on parsimmon",
   "main": "dist/node/index.js",
   "types": "dist/node/index.d.ts",
-  "unpkg": "dist/browser/prototxt-parser.js",
+  "unpkg": "dist/browser/prototxt-parser.min.js",
   "scripts": {
     "test": "karma start",
     "test-travis": "karma start --browsers='Firefox,Chrome' --singleRun",
