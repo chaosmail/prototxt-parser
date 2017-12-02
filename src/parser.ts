@@ -2,6 +2,11 @@ import * as P from 'parsimmon';
 
 type tuple = [string, string|number|object];
 
+// Remove line comments
+const removeLineComments = (d: tuple[]) => d.filter((e) => {
+  return Array.isArray(e);
+});
+
 // Convert an array of tuples [[a,b],[a,c]] to an object {a: [b,c]}
 const tuplesToObj = (d: tuple[]) => d.reduce((r: any, c: tuple) => {
   // load tuple [key,val] pair
@@ -56,6 +61,7 @@ const Prototxt = P.createLanguage({
   true: () => word("true").result(true),
   false: () => word("false").result(false),
 
+  comment: () => P.regexp(/\s*#\s*(.*)/m, 1),
   doubleQuotedString: () => P.regexp(/"((?:\\.|.)*?)"/, 1),
   singleQuotedString: () => P.regexp(/'((?:\\.|.)*?)'/, 1),
 
@@ -81,9 +87,10 @@ const Prototxt = P.createLanguage({
     ),
 
   exp: (r) =>
-    P.alt(r.pair, r.message)
+    P.alt(r.pair, r.message, r.comment)
       .trim(P.optWhitespace)
       .many()
+      .map(removeLineComments)
       .map(tuplesToObj)
 });
 
