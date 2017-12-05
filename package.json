@@ -1,6 +1,6 @@
 {
   "name": "prototxt-parser",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "a prototxt parser for js based on parsimmon",
   "main": "dist/node/index.js",
   "types": "dist/node/index.d.ts",
@@ -37,7 +37,6 @@
     "karma-jasmine": "~1.1.0",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-typescript": "^3.0.8",
-    "parsimmon": "^1.6.2",
     "run-sequence": "^2.2.0",
     "tinyify": "^2.3.0",
     "tsify": "~3.0.1",
@@ -45,5 +44,8 @@
     "tslint-no-circular-imports": "~0.2.0",
     "typescript": "2.5.3",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "parsimmon": "^1.6.2"
   }
 }

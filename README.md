@@ -17,7 +17,6 @@ Parse `*.prototxt` files to JavaScript objects.
   }
 
   var uri = "https://rawgit.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.1/deploy.prototxt";
-  
   var proto;
   fetchText(uri).then(function(str){
     proto = prototxtParser.parse(str);
@@ -36,6 +35,7 @@ function fetchText(uri: string) : Promise<string> {
   return fetch(new Request(uri)).then((res) => res.text());
 }
 
+let uri = "https://rawgit.com/DeepScale/SqueezeNet/master/SqueezeNet_v1.1/deploy.prototxt";
 let proto: Object;
 
 fetchText(uri).then(function(str){

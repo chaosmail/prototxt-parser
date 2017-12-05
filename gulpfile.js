@@ -9,6 +9,7 @@ const p = require('./package.json');
 
 const config = {
   src: "./src",
+  pkgname: p.name,
   filename: p.name + ".js",
   dst: "./dist"
 };
@@ -18,7 +19,7 @@ const tsProject = ts.createProject('tsconfig.json');
 function getBrowserify(tinyify) {
   const b = browserify({
     entries: config.src + '/index.ts',
-    standalone: 'prototxt-parser'
+    standalone: config.pkgname
   }).plugin('tsify');
 
   return tinyify === true ? b.plugin('tinyify').bundle() : b.bundle();
