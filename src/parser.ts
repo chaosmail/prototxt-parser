@@ -35,7 +35,7 @@ const interpretEscapes = (str: string) => {
     if (escapes.hasOwnProperty(type)) {
       return escapes[type];
     }
-    return type;
+    return _;
   });
 }
 
