@@ -1,6 +1,6 @@
 {
   "name": "prototxt-parser",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "a prototxt parser for js based on parsimmon",
   "main": "dist/node/index.js",
   "types": "dist/node/index.d.ts",
